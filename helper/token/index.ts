@@ -52,13 +52,13 @@ export enum TokenType {
 export class Token {
   private static listCompareOperator: TokenType[] = [];
   type: TokenType;
-  value: string;
+  value: string | null;
   lineno: number;
   column: number;
 
   constructor(
     type: TokenType,
-    value: string,
+    value: string | null,
     lineno: number = -1,
     column: number = -1
   ) {
