@@ -1,5 +1,5 @@
 import AST from "./ast";
-import Block from "./Block";
+import Block from "./block";
 
 export default class ProgramAST extends AST {
   name: string;

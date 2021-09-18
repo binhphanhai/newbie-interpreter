@@ -8,6 +8,6 @@ export default class MyString extends AST {
   constructor(token: Token) {
     super();
     this.token = token;
-    this.value = token.value;
+    this.value = token.value!;
   }
 }

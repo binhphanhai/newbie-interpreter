@@ -1,6 +1,6 @@
 import AST from "./ast";
 import BinOP from "./binOP";
-import Block from "./Block";
+import Block from "./block";
 
 export default class If extends AST {
   expression: BinOP;

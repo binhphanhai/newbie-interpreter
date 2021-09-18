@@ -1,6 +1,6 @@
 import AST from "./ast";
 import BinOP from "./binOP";
-import Block from "./Block";
+import Block from "./block";
 
 export default class While extends AST {
   expression: BinOP;
