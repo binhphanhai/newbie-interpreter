@@ -255,4 +255,8 @@ export default class Lexer {
 
     return new Token(TokenType.EOF, null, this.lineno, this.column);
   }
+
+  public getCurrentChar() {
+    return this.currentChar;
+  }
 }
