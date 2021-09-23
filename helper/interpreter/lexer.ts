@@ -1,3 +1,4 @@
+import { LexerError } from "../errors/lexerError";
 import Token, { TokenType } from "../token";
 
 const END_CHAR = "@";
@@ -40,8 +41,10 @@ export default class Lexer {
     this.column = 1;
   }
 
-  private showError() {
-    // TO DO
+  public showError() {
+    const message = `Lexer error on ${this.currentChar} line: ${this.lineno}, column: ${this.column}`;
+    const error = new LexerError(message);
+    error.showError();
   }
 
   public static initReservedKeywords() {
