@@ -18,6 +18,8 @@ import UnaryOP from "../abstractSyntaxTree/unaryOP";
 import Var from "../abstractSyntaxTree/var";
 import VariableDeclaration from "../abstractSyntaxTree/variableDeclaration";
 import While from "../abstractSyntaxTree/while";
+import { ErrorCode } from "../errors/baseError";
+import { ParserError } from "../errors/parserError";
 import Token, { TokenType } from "../token";
 import Lexer from "./lexer";
 
@@ -31,14 +33,19 @@ export default class Parse {
   }
 
   private showError() {
-    // TO DO
+    const message = `${ErrorCode.UNEXPECTED_TOKEN.toString()} -> ${this.currentToken.showToken()}`;
+    const error = new ParserError(
+      ErrorCode.UNEXPECTED_TOKEN,
+      this.currentToken,
+      message
+    );
+    error.showError();
   }
 
   private eat(type: TokenType) {
     if (this.currentToken.type === type) {
       this.currentToken = this.lexer.getNextToken();
     } else {
-      // TO DO
       this.showError();
     }
   }
@@ -251,7 +258,6 @@ export default class Parse {
     }
 
     if (this.currentToken.type === TokenType.ID) {
-      // TO DO
       this.showError();
     }
     return statementList;
@@ -362,7 +368,7 @@ export default class Parse {
   public parse(): ProgramAST {
     const program = this.getProgram();
     if (this.currentToken.type !== TokenType.EOF) {
-      // TO DO: show unexpected token error
+      this.showError();
     }
     return program;
   }
