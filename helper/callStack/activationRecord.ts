@@ -3,7 +3,7 @@ export enum ARType {
   PROCEDURE = 1,
 }
 
-export class ActivationRecord {
+export default class ActivationRecord {
   name: string;
   type: ARType;
   level: number;
