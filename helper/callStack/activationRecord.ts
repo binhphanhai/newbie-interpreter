@@ -27,8 +27,8 @@ export default class ActivationRecord {
   }
 
   private initBuiltInProcs() {
-    this.members.set("print", "VisitPrint");
-    this.builtInProcs.set("print", "VisitPrint");
+    this.members.set("print", "visitPrint");
+    this.builtInProcs.set("print", "visitPrint");
   }
 
   public getItem(key: string): any {
