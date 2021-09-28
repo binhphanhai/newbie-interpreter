@@ -15,7 +15,7 @@ import UnaryOP from "../abstractSyntaxTree/unaryOP";
 import Var from "../abstractSyntaxTree/var";
 import VariableDeclaration from "../abstractSyntaxTree/variableDeclaration";
 import While from "../abstractSyntaxTree/while";
-import { ErrorCode } from "../errors/baseError";
+import { ErrorCode, MAP_ERROR_CODE } from "../errors/baseError";
 import { SemanticError } from "../errors/semanticError";
 import SymbolTable from "../symbolTable";
 import ProcedureSymbol from "../symbolTable/procedureSymbol";
@@ -32,7 +32,7 @@ export default class SemanticAnalyzer extends NodeVisitor {
   }
 
   private showError(errorCode: ErrorCode, token: Token) {
-    const message = `${errorCode.toString()} -> ${token.showToken()}`;
+    const message = `${MAP_ERROR_CODE[errorCode]} -> ${token.showToken()}`;
     const error = new SemanticError(errorCode, token, message);
     error.showError();
   }

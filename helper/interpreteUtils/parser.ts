@@ -18,7 +18,7 @@ import UnaryOP from "../abstractSyntaxTree/unaryOP";
 import Var from "../abstractSyntaxTree/var";
 import VariableDeclaration from "../abstractSyntaxTree/variableDeclaration";
 import While from "../abstractSyntaxTree/while";
-import { ErrorCode } from "../errors/baseError";
+import { ErrorCode, MAP_ERROR_CODE } from "../errors/baseError";
 import { ParserError } from "../errors/parserError";
 import Token, { TokenType } from "../token";
 import Lexer from "./lexer";
@@ -33,7 +33,9 @@ export default class Parser {
   }
 
   private showError() {
-    const message = `${ErrorCode.UNEXPECTED_TOKEN.toString()} -> ${this.currentToken.showToken()}`;
+    const message = `${
+      MAP_ERROR_CODE[ErrorCode.UNEXPECTED_TOKEN]
+    } -> ${this.currentToken.showToken()}`;
     const error = new ParserError(
       ErrorCode.UNEXPECTED_TOKEN,
       this.currentToken,
@@ -68,7 +70,7 @@ export default class Parser {
         this.eat(TokenType.VAR);
         if ((this.currentToken.type as TokenType) === TokenType.ID) {
           const varDeclarations = this.getVariableDeclaration();
-          declarations.concat(varDeclarations);
+          declarations.push(...varDeclarations);
           this.eat(TokenType.SEMI);
         }
       }
