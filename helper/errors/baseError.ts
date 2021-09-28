@@ -10,6 +10,15 @@ export enum ErrorCode {
   UNSIGNED = 99,
 }
 
+export const MAP_ERROR_CODE = {
+  [ErrorCode.UNEXPECTED_TOKEN]: "UNEXPECTED_TOKEN",
+  [ErrorCode.ID_NOT_FOUND]: "ID_NOT_FOUND",
+  [ErrorCode.DUPLICATE_ID]: "DUPLICATE_ID",
+  [ErrorCode.NOT_FOUND_TYPE]: "NOT_FOUND_TYPE",
+  [ErrorCode.DUPLICATE_PROCEDURE]: "DUPLICATE_PROCEDURE",
+  [ErrorCode.UNSIGNED]: "UNSIGNED",
+};
+
 export default class BaseError {
   errorCode: ErrorCode;
   token: Token | null;
