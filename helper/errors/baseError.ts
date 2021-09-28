@@ -1,9 +1,11 @@
 import Token from "../token";
 
 export enum ErrorCode {
-  UNEXPECTED_TOKEN = 0,
-  ID_NOT_FOUND = 1,
-  DUPLICATE_ID = 2,
+  UNEXPECTED_TOKEN,
+  ID_NOT_FOUND,
+  DUPLICATE_ID,
+  NOT_FOUND_TYPE,
+  DUPLICATE_PROCEDURE,
 
   UNSIGNED = 99,
 }
