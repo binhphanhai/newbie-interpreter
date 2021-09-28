@@ -4,7 +4,7 @@ import Token, { TokenType } from "../token";
 const END_CHAR = "@";
 
 const isWhiteSpace = (char: string) => {
-  return char === " ";
+  return char === " " || char === "\t";
 };
 
 const isBreakLine = (char: string) => {
@@ -188,6 +188,9 @@ export default class Lexer {
       } else if (this.currentChar == "#") {
         this.advanceCurrentChar();
         this.skipComment();
+        continue;
+      } else if (isBreakLine(this.currentChar)) {
+        this.advanceCurrentChar();
         continue;
       } else if (isLetter(this.currentChar)) {
         return this.takeId();
