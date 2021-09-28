@@ -28,7 +28,7 @@ import VarSymbol from "../symbolTable/varSymbol";
 import Token, { TokenType } from "../token";
 import NodeVisitor from "./nodeVisitor";
 
-export default class SemanticAnalyzer extends NodeVisitor {
+export default class Interpreter extends NodeVisitor {
   private tree: AST;
   private callStack: CallStack;
 

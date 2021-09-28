@@ -23,7 +23,7 @@ import { ParserError } from "../errors/parserError";
 import Token, { TokenType } from "../token";
 import Lexer from "./lexer";
 
-export default class Parse {
+export default class Parser {
   private lexer: Lexer;
   private currentToken: Token;
 
