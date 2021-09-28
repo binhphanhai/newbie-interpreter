@@ -20,14 +20,14 @@ import VariableDeclaration from "../abstractSyntaxTree/variableDeclaration";
 import While from "../abstractSyntaxTree/while";
 import CallStack from "../callStack";
 import ActivationRecord, { ARType } from "../callStack/activationRecord";
-import { ErrorCode } from "../errors/baseError";
-import { SemanticError } from "../errors/semanticError";
-import SymbolTable from "../symbolTable";
-import ProcedureSymbol from "../symbolTable/procedureSymbol";
-import VarSymbol from "../symbolTable/varSymbol";
-import Token, { TokenType } from "../token";
+import { TokenType } from "../token";
 import NodeVisitor from "./nodeVisitor";
 
+const normalizeParams = (params: any[]) => {
+  return params.map((param) =>
+    typeof param === "string" ? `"${param}"` : param
+  );
+};
 export default class Interpreter extends NodeVisitor {
   private tree: AST;
   private callStack: CallStack;
@@ -141,7 +141,10 @@ export default class Interpreter extends NodeVisitor {
     for (const param of node.actualParams) {
       actualParam.push(this.visit(param));
     }
-    const method = `this.visit${procedure}(${actualParam.join(",")})`;
+
+    const method = `this.${procedure}(${normalizeParams(actualParam).join(
+      ","
+    )})`;
     return eval(method);
   }
 
