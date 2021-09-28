@@ -85,6 +85,7 @@ export default class Parse {
     // get function's name
     this.eat(TokenType.PROCEDURE);
     const procName = this.currentToken.value!;
+    const token = this.currentToken;
     this.eat(TokenType.ID);
 
     // get params
@@ -95,7 +96,7 @@ export default class Parse {
     // get block
     const blockNode = this.getBlock();
 
-    return new ProcedureDeclaration(procName, params, blockNode);
+    return new ProcedureDeclaration(procName, token, params, blockNode);
   }
 
   private getFormalParameterList(): Param[] {
