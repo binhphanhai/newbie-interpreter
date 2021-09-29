@@ -48,6 +48,15 @@ export enum TokenType {
   EOF = 199,
 }
 
+const MAP_TOKEN_TYPE: any = {};
+
+for (const enumMember in TokenType) {
+  const isValueProperty = parseInt(enumMember, 10) >= 0;
+  if (isValueProperty) {
+    MAP_TOKEN_TYPE[enumMember] = TokenType[enumMember];
+  }
+}
+
 /// Used to store tokens (type, value, position)
 export class Token {
   private static listCompareOperator: TokenType[] = [];
@@ -69,7 +78,7 @@ export class Token {
   }
 
   showToken() {
-    return `Token: ${this.type.toString()}, ${this.value}, position = ${
+    return `Token: ${MAP_TOKEN_TYPE[this.type]}, ${this.value}, position = ${
       this.lineno
     }:${this.column}`;
   }
