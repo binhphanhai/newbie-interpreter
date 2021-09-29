@@ -1,20 +1,20 @@
 import type { NextPage } from "next";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import Editor from "../component/editor";
+import ResultPanel from "../component/resultPanel";
 
 const Home: NextPage = () => {
-  const inputRef = useRef<HTMLTextAreaElement>(null);
-  const [result, setResult] = useState("");
-
-  const handleInterprete = () => {
-    const code = inputRef.current?.value!;
-    setResult(code);
-  };
+  const [code, setCode] = useState("");
 
   return (
     <div>
-      <textarea ref={inputRef}></textarea>
-      <button onClick={handleInterprete}>Interprete</button>
-      <div>{result}</div>
+      <div></div>
+      <div>
+        <Editor code={code} setCode={setCode} />
+      </div>
+      <div className="result-panel-container">
+        <ResultPanel code={code} />
+      </div>
     </div>
   );
 };

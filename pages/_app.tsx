@@ -13,7 +13,15 @@ function MyApp({ Component, pageProps }: AppProps) {
       <main>
         <Component {...pageProps} />
       </main>
-      <footer>footer</footer>
+      <div className="footer">
+        <a
+          rel="noreferrer"
+          href="https://github.com/binhphanhai/newbie-interpreter"
+          target="_blank"
+        >
+          Source code
+        </a>
+      </div>
     </>
   );
 }
