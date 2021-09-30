@@ -67,8 +67,8 @@ h2 {
 }
 
 .result-zone {
-  margin-top: 32px;
-  margin-bottom: 100px;
+  margin: 32px 20px 100px 20px;
+  padding: 10px;
   height: 30vh;
   overflow-y: scroll;
   border: 2px solid black;

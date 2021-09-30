@@ -1,17 +1,30 @@
 import React, { useState } from "react";
+import { interprete } from "../helper/interpreteUtils";
 
 interface ResultPanelProps {
   code: string;
 }
 
 const ResultPanel: React.FC<ResultPanelProps> = (props) => {
-  const [result, setResult] = useState("Result");
+  const { code } = props;
+  const [result, setResult] = useState<string[]>(["Result"]);
+
+  const handleInterprete = () => {
+    const result = interprete(code);
+    setResult(result);
+  };
   return (
     <div>
       <div className="button-container">
-        <span className="button title">Interprete</span>
+        <span className="button title" onClick={handleInterprete}>
+          Interprete
+        </span>
       </div>
-      <div className="result-zone">{result}</div>
+      <div className="result-zone">
+        {result.map((value, index) => (
+          <div key={index}>{value}</div>
+        ))}
+      </div>
     </div>
   );
 };

@@ -7,13 +7,12 @@ import { readFiles } from "../helper/fileReader";
 
 const Home = ({ examples }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [code, setCode] = useState("");
-  console.log(code);
   return (
     <div>
       <div>
         <h2>Welcome to Newbie Interpreter</h2>
         <div className="example-container">
-          <span className="title">Let try some example: </span>
+          <span className="title">Let try some examples: </span>
           {Object.keys(examples).map((itemKey) => (
             <ExampleItem
               key={itemKey}
@@ -35,7 +34,6 @@ const Home = ({ examples }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const examples = readFiles("examples/");
-
   return {
     props: {
       examples,
