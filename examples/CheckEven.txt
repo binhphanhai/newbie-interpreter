@@ -2,8 +2,9 @@ program test
 {
     // have to declare all variable & function on top of function or program
 	var s: string;
+	var n: int;
 	var rs: bool;
-	function IsEven(x: int)
+	function isEven(x: int)
 	{
 		var result: bool;
 		if(x % 2 == 0)
@@ -17,16 +18,17 @@ program test
 		
 		return result;
 	}
-	s = "Program that checks even of number 1620: ";
+	n = 1620;
+	s = "Program that checks even of number " + n + ":";
 	print("Welcome to Newbie Interpreter:");
 	print(s);
-	rs = IsEven(1620);
+	rs = isEven(n);
 	if(rs == true)
 	{
-		print("Number 1620 is even");
+		print("Number " + n + " is even");
 	}
 	else
 	{
-		print("Number 1620 is odd");
+		print("Number " + n + " is odd");
 	};
 }	

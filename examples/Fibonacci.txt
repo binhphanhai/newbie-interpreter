@@ -1,9 +1,9 @@
 program test
 {
     // have to declare all variable & function on top of function or program
-	var x: int;
+	var i, n: int;
 	var s: string;
-	function Fibonacci(x: int)
+	function fibonacci(x: int)
 	{
 		var result: int;
 		if(x <= 0)
@@ -23,18 +23,19 @@ program test
 
 		if(x > 2) 
 		{
-			result = Fibonacci(x-1) + Fibonacci(x-2);
+			result = fibonacci(x - 1) + fibonacci(x - 2);
 		};
 		
 		return result;
 	}
-	x = 1;
-	s = "The first ten numbers of Fibonacci:";
+	i = 1;
+	n = 10;
+	s = "The first " + n + " numbers of Fibonacci:";
 	print("Welcome to Newbie Interpreter:");
 	print(s);
-	while(x<=10)
+	while(i <= 10)
 	{ 
-		print(Fibonacci(x));
-		x = x+1;
+		print(fibonacci(i));
+		i = i + 1;
 	};
 }	

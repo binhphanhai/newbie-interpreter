@@ -1,56 +1,39 @@
 program test
 {
     // have to declare all variable & function on top of function or program
-	var x, y: int;
+	var n: int;
 	var s: string;
 	var rs: bool;
-	function CalculateSquareRoot(x: real)
+	function calculateSquareRoot(x: real)
 	{
 		var result: real;
-		var tempX: real;
-		var tempEp: real;
+		var currentX: real;
+		var currentEp: real;
 		var epsilon: real;
 		var left, right: real;
-		var check: bool;
-		var resultIsGreater: bool;
+		var isResultGreater: bool;
 		
 		epsilon = 0.000001;		
 		left = 0.0;
 		right = x;
-		result = (left + right)/2;
-		tempX = result * result;
+		result = (left + right) / 2;
+		currentX = result * result;
 
-		//Check even if the result is greater than expected result
-		if(tempX > x )
+		// Check even if the result is greater than expected result
+		if(currentX > x )
 		{
-			tempEp = tempX - x;
-			resultIsGreater = true;
-			if(tempEp > epsilon)
-			{
-				check = false;
-			}
-			else
-			{
-				check = true;
-			};
+			currentEp = currentX - x;
+			isResultGreater = true;
 		}
 		else
 		{
-			resultIsGreater = false;
-			tempEp = x - tempX;
-			if(tempEp > epsilon)
-			{
-				check = false;
-			}
-			else
-			{
-				check = true;
-			};
+			isResultGreater = false;
+			currentEp = x - currentX;
 		};
 		
-		while(check == false)
+		while(currentEp > epsilon)
 		{
-			if(resultIsGreater == true)
+			if(isResultGreater == true)
 			{
 				right = result;				
 			}
@@ -59,42 +42,27 @@ program test
 				left = result;
 			};
 			// continue checking
-			result = (left + right)/2;
-			tempX = result * result;
+			result = (left + right) / 2;
+			currentX = result * result;
 
-			//Check even if the result is greater than expected result
-			if(tempX > x )
+			// Check even if the result is greater than expected result
+			if(currentX > x )
 			{
-				tempEp = tempX - x;
-				resultIsGreater = true;
-				if(tempEp > epsilon)
-				{
-					check = false;
-				}
-				else
-				{
-					check = true;
-				};
+				currentEp = currentX - x;
+				isResultGreater = true;
 			}
 			else
 			{
-				resultIsGreater = false;
-				tempEp = x - tempX;
-				if(tempEp > epsilon)
-				{
-					check = false;
-				}
-				else
-				{
-					check = true;
-				};
+				isResultGreater = false;
+				currentEp = x - currentX;
 			};
 		};
 	
 		return result;
 	}
-	s = "The program that calculates the square root of number 5: ";
+	n = 5;
+	s = "The program that calculates the square root of number " + n + ":";
 	print("Welcome to Newbie Interpreter:");
 	print(s);
-	print(CalculateSquareRoot(5));
+	print(calculateSquareRoot(n));
 }	
