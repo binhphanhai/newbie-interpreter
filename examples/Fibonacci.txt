@@ -1,0 +1,39 @@
+program test
+{
+	var x: int;
+	var s: string;
+	function Fibonacci(x: int)
+	{
+		var result: int;
+		if(x <= 0)
+		{
+			result = -1;
+		};
+
+		if(x == 1) 
+		{
+			result = 1;
+		};
+
+		if(x == 2) 
+		{
+			result = 1;
+		};
+
+		if(x > 2) 
+		{
+			result = Fibonacci(x-1) + Fibonacci(x-2);
+		};
+		
+		return result;
+	}
+	x = 1;
+	s = "The first ten number of Fibonacci";
+	print("Welcome to BNInterpreter:");
+	print(s);
+	while(x<=10)
+	{ 
+		print(Fibonacci(x));
+		x = x+1;
+	};
+}	

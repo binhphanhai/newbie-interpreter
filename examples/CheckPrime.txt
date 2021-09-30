@@ -1,0 +1,35 @@
+program test
+{
+	var x, y: int;
+	var s: string;
+	var rs: bool;
+	function IsPrime(x: int)
+	{
+		var i: int;
+		var result: bool;
+		result = true;
+		i = 2;
+		while(i<x)
+		{
+			if(x % i == 0)
+			{
+				result = false;
+			};
+			i = i + 1;
+		};
+	
+		return result;
+	}
+	s = "Program that checks prime of number 19: ";
+	print("Welcome to BNInterpreter:");
+	print(s);
+	rs = IsPrime(19);
+	if(rs == true)
+	{
+		print("Number 19 is prime");
+	}
+	else
+	{
+		print("Number 19 is not prime");
+	};
+}	

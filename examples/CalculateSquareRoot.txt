@@ -1,0 +1,99 @@
+program test
+{
+	var x, y: int;
+	var s: string;
+	var rs: bool;
+	function CalculateSquareRoot(x: real)
+	{
+		var result: real;
+		var tempX: real;
+		var tempEp: real;
+		var epsilon: real;
+		var left, right: real;
+		var check: bool;
+		var resultIsGreater: bool;
+		
+		epsilon = 0.000001;		
+		left = 0.0;
+		right = x;
+		result = (left + right)/2;
+		tempX = result * result;
+
+		#Check even if the result is greater than expected result
+		if(tempX > x )
+		{
+			tempEp = tempX - x;
+			resultIsGreater = true;
+			if(tempEp > epsilon)
+			{
+				check = false;
+			}
+			else
+			{
+				check = true;
+			};
+		}
+		else
+		{
+			resultIsGreater = false;
+			tempEp = x - tempX;
+			if(tempEp > epsilon)
+			{
+				check = false;
+			}
+			else
+			{
+				check = true;
+			};
+		};
+		
+		while(check == false)
+		{
+			if(resultIsGreater == true)
+			{
+				right = result;				
+			}
+			else
+			{
+				left = result;
+			};
+			#check tiep
+			result = (left + right)/2;
+			tempX = result * result;
+
+			#Check even if the result is greater than expected result
+			if(tempX > x )
+			{
+				tempEp = tempX - x;
+				resultIsGreater = true;
+				if(tempEp > epsilon)
+				{
+					check = false;
+				}
+				else
+				{
+					check = true;
+				};
+			}
+			else
+			{
+				resultIsGreater = false;
+				tempEp = x - tempX;
+				if(tempEp > epsilon)
+				{
+					check = false;
+				}
+				else
+				{
+					check = true;
+				};
+			};
+		};
+	
+		return result;
+	}
+	s = "The program that calculates the square root of number 5: ";
+	print("Welcome to BNInterpreter:");
+	print(s);
+	print(CalculateSquareRoot(5));
+}	
