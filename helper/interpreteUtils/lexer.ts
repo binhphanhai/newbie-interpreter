@@ -185,7 +185,8 @@ export default class Lexer {
       if (isWhiteSpace(this.currentChar)) {
         this.skipWhiteSpace();
         continue;
-      } else if (this.currentChar == "#") {
+      } else if (this.currentChar == "/" && this.peek() == "/") {
+        this.advanceCurrentChar();
         this.advanceCurrentChar();
         this.skipComment();
         continue;
@@ -245,11 +246,11 @@ export default class Lexer {
       } else if (this.currentChar == ",") {
         this.advanceCurrentChar();
         type = TokenType.COMMA;
-      } else if (this.currentChar == "/" && this.peek() == "/") {
+      } else if (this.currentChar == "/" && this.peek() == "#") {
         this.advanceCurrentChar();
         this.advanceCurrentChar();
         type = TokenType.INTEGER_DIV;
-        value = "//";
+        value = "/#";
       } else if (this.currentChar == "/") {
         this.advanceCurrentChar();
         type = TokenType.REAL_DIV;
