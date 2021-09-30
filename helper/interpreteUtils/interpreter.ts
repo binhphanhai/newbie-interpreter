@@ -29,13 +29,13 @@ const normalizeParams = (params: any[]) => {
   );
 };
 export default class Interpreter extends NodeVisitor {
-  private tree: AST;
   private callStack: CallStack;
+  private resultArray: string[];
 
-  constructor(tree: AST) {
+  constructor() {
     super();
-    this.tree = tree;
     this.callStack = new CallStack();
+    this.resultArray = [];
   }
 
   private showError(message: string) {
@@ -180,7 +180,8 @@ export default class Interpreter extends NodeVisitor {
   }
 
   private visitPrint(value: any) {
-    console.log(value);
+    // console.log(value);
+    this.resultArray.push(value);
   }
 
   private visitIf(node: If) {
@@ -204,7 +205,8 @@ export default class Interpreter extends NodeVisitor {
     this.callStack.pop();
   }
 
-  public interprete() {
-    return this.visit(this.tree);
+  public interprete(tree: AST) {
+    this.visit(tree);
+    return this.resultArray;
   }
 }
