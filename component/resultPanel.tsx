@@ -11,7 +11,7 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isErrored, setIsErrored] = useState(false);
 
-  const handleInterprete = () => {
+  const handleInterpret = () => {
     setIsErrored(false);
     if (code === "") {
       setResult(["Please input code"]);
@@ -19,7 +19,7 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
     }
     setIsLoading(true);
     axios
-      .post("/api/interprete", { code: code })
+      .post("/api/interpret", { code: code })
       .then((res) => {
         setResult(res.data.result);
       })
@@ -36,8 +36,8 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
   return (
     <div>
       <div className="button-container">
-        <span className="button title" onClick={handleInterprete}>
-          Interprete
+        <span className="button title" onClick={handleInterpret}>
+          Interpret
         </span>
       </div>
       <div className={`result-zone ${isErrored ? "is-error" : ""}`}>

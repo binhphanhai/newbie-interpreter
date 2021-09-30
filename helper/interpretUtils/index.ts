@@ -7,7 +7,7 @@ import SemanticAnalyzer from "./semanticAnalyzer";
 Token.addSampleCompareOperator();
 Lexer.initReservedKeywords();
 
-export const interprete = (code: string) => {
+export const interpret = (code: string) => {
   const lexer = new Lexer(code);
   const parser = new Parser(lexer);
 
@@ -18,5 +18,5 @@ export const interprete = (code: string) => {
 
   const interpreter = new Interpreter();
 
-  return interpreter.interprete(tree);
+  return interpreter.interpret(tree);
 };

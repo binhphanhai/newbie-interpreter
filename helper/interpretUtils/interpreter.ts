@@ -205,7 +205,7 @@ export default class Interpreter extends NodeVisitor {
     this.callStack.pop();
   }
 
-  public interprete(tree: AST) {
+  public interpret(tree: AST) {
     this.visit(tree);
     return this.resultArray;
   }
