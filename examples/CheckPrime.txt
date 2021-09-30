@@ -1,6 +1,6 @@
 program test
 {
-	var x, y: int;
+	// have to declare all variable & function on top of function or program
 	var s: string;
 	var rs: bool;
 	function IsPrime(x: int)
@@ -21,7 +21,7 @@ program test
 		return result;
 	}
 	s = "Program that checks prime of number 19: ";
-	print("Welcome to BNInterpreter:");
+	print("Welcome to Newbie Interpreter:");
 	print(s);
 	rs = IsPrime(19);
 	if(rs == true)

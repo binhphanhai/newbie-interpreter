@@ -1,5 +1,6 @@
 program test
 {
+    // have to declare all variable & function on top of function or program
 	var x, y: int;
 	var s: string;
 	var rs: bool;
@@ -19,7 +20,7 @@ program test
 		result = (left + right)/2;
 		tempX = result * result;
 
-		#Check even if the result is greater than expected result
+		//Check even if the result is greater than expected result
 		if(tempX > x )
 		{
 			tempEp = tempX - x;
@@ -57,11 +58,11 @@ program test
 			{
 				left = result;
 			};
-			#check tiep
+			// continue checking
 			result = (left + right)/2;
 			tempX = result * result;
 
-			#Check even if the result is greater than expected result
+			//Check even if the result is greater than expected result
 			if(tempX > x )
 			{
 				tempEp = tempX - x;
@@ -93,7 +94,7 @@ program test
 		return result;
 	}
 	s = "The program that calculates the square root of number 5: ";
-	print("Welcome to BNInterpreter:");
+	print("Welcome to Newbie Interpreter:");
 	print(s);
 	print(CalculateSquareRoot(5));
 }	

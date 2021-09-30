@@ -1,5 +1,6 @@
 program test
 {
+    // have to declare all variable & function on top of function or program
 	var x: int;
 	var s: string;
 	function Fibonacci(x: int)
@@ -28,8 +29,8 @@ program test
 		return result;
 	}
 	x = 1;
-	s = "The first ten number of Fibonacci";
-	print("Welcome to BNInterpreter:");
+	s = "The first ten numbers of Fibonacci:";
+	print("Welcome to Newbie Interpreter:");
 	print(s);
 	while(x<=10)
 	{ 
