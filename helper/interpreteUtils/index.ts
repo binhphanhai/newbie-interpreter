@@ -16,7 +16,7 @@ export const interprete = (code: string) => {
   const semanticAnalyzer = new SemanticAnalyzer();
   semanticAnalyzer.visit(tree);
 
-  const interpreter = new Interpreter(tree);
+  const interpreter = new Interpreter();
 
-  return interpreter.interprete();
+  return interpreter.interprete(tree);
 };

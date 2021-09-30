@@ -4,7 +4,7 @@ import Token, { TokenType } from "../token";
 const END_CHAR = "@";
 
 const isWhiteSpace = (char: string) => {
-  return char === " " || char === "\t";
+  return char === " " || char === "\t" || char === "\r";
 };
 
 const isBreakLine = (char: string) => {
