@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </main>
       <div className="footer">
         <a
+          className="title"
           rel="noreferrer"
           href="https://github.com/binhphanhai/newbie-interpreter"
           target="_blank"

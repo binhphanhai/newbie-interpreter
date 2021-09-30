@@ -9,7 +9,7 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
   return (
     <div>
       <div className="button-container">
-        <span className="button">Interprete</span>
+        <span className="button title">Interprete</span>
       </div>
       <div className="result-zone">{result}</div>
     </div>

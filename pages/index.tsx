@@ -1,14 +1,28 @@
-import type { NextPage } from "next";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
 import { useState } from "react";
 import Editor from "../component/editor";
+import ExampleItem from "../component/exampleItem";
 import ResultPanel from "../component/resultPanel";
+import { readFiles } from "../helper/fileReader";
 
-const Home: NextPage = () => {
+const Home = ({ examples }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [code, setCode] = useState("");
-
+  console.log(code);
   return (
     <div>
-      <div></div>
+      <div>
+        <h2>Welcome to Newbie Interpreter</h2>
+        <div className="example-container">
+          <span className="title">Let try some example: </span>
+          {Object.keys(examples).map((itemKey) => (
+            <ExampleItem
+              key={itemKey}
+              name={itemKey}
+              handleSelect={() => setCode(examples[itemKey])}
+            />
+          ))}
+        </div>
+      </div>
       <div>
         <Editor code={code} setCode={setCode} />
       </div>
@@ -17,6 +31,16 @@ const Home: NextPage = () => {
       </div>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const examples = readFiles("examples/");
+
+  return {
+    props: {
+      examples,
+    },
+  };
 };
 
 export default Home;

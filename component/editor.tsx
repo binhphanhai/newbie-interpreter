@@ -9,18 +9,17 @@ interface EditorProps {
 }
 
 const Editor: React.FC<EditorProps> = (props) => {
-  const [codeValue, setCodeValue] = useState("");
+  const { code, setCode } = props;
   return (
     <CodeMirror
-      value={codeValue}
+      value={code}
       options={{
         theme: "material",
         lineNumbers: true,
       }}
       onBeforeChange={(editor, data, value) => {
-        setCodeValue(value);
+        setCode(value);
       }}
-      
     />
   );
 };
