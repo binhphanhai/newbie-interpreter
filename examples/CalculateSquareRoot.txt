@@ -1,6 +1,6 @@
 program test
 {
-    // have to declare all variable & function on top of function or program
+    // have to declare all variables & functions on top of function or program
 	var n: int;
 	var s: string;
 	var rs: bool;
