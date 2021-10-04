@@ -33,7 +33,7 @@ program test
 	s = "The first " + n + " numbers of Fibonacci:";
 	print("Welcome to Newbie Interpreter:");
 	print(s);
-	while(i <= 10)
+	while(i <= n)
 	{ 
 		print(fibonacci(i));
 		i = i + 1;
