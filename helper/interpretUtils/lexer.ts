@@ -137,8 +137,9 @@ export default class Lexer {
       value += this.currentChar;
       this.advanceCurrentChar();
     }
-    return Lexer.RESERVED_KEYWORDS[value]
-      ? Lexer.RESERVED_KEYWORDS[value]
+    const reserved_Token = Lexer.RESERVED_KEYWORDS[value];
+    return reserved_Token
+      ? new Token(reserved_Token.type, reserved_Token.value, lineno, column)
       : new Token(TokenType.ID, value, lineno, column);
   }
 
