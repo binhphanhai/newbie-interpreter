@@ -49,19 +49,19 @@ export default class Lexer {
 
   public static initReservedKeywords() {
     Lexer.RESERVED_KEYWORDS = {
-      var: TokenType.VAR,
-      program: TokenType.PROGRAM,
-      int: TokenType.INTEGER,
-      real: TokenType.REAL,
-      string: TokenType.STRING,
-      bool: TokenType.BOOL,
-      function: TokenType.PROCEDURE,
-      return: TokenType.RETURN,
-      if: TokenType.IF,
-      else: TokenType.ELSE,
-      while: TokenType.WHILE,
-      true: TokenType.BOOL_CONST,
-      false: TokenType.BOOL_CONST,
+      var: new Token(TokenType.VAR, "VAR"),
+      program: new Token(TokenType.PROGRAM, "PROGRAM"),
+      int: new Token(TokenType.INTEGER, "INTEGER"),
+      real: new Token(TokenType.REAL, "REAL"),
+      string: new Token(TokenType.STRING, "STRING"),
+      bool: new Token(TokenType.BOOL, "BOOL"),
+      function: new Token(TokenType.PROCEDURE, "PROCEDURE"),
+      return: new Token(TokenType.RETURN, "RETURN"),
+      if: new Token(TokenType.IF, "IF"),
+      else: new Token(TokenType.ELSE, "ELSE"),
+      while: new Token(TokenType.WHILE, "WHILE"),
+      true: new Token(TokenType.BOOL_CONST, "TRUE"),
+      false: new Token(TokenType.BOOL_CONST, "FALSE"),
     };
   }
 
@@ -138,7 +138,7 @@ export default class Lexer {
       this.advanceCurrentChar();
     }
     return Lexer.RESERVED_KEYWORDS[value]
-      ? new Token(Lexer.RESERVED_KEYWORDS[value], value, lineno, column)
+      ? Lexer.RESERVED_KEYWORDS[value]
       : new Token(TokenType.ID, value, lineno, column);
   }
 
