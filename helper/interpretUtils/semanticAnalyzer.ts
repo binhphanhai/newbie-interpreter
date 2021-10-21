@@ -127,6 +127,10 @@ export default class SemanticAnalyzer extends NodeVisitor {
   }
 
   private visitProcedureCall(node: ProcedureCall) {
+    const procName = node.procName;
+    if (this.currentScope && !this.currentScope.lookup(procName)) {
+      this.showError(ErrorCode.PROCEDURE_NOT_FOUND, node.token);
+    }
     for (const param of node.actualParams) {
       this.visit(param);
     }

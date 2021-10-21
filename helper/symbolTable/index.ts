@@ -1,4 +1,5 @@
 import BuiltInTypeSymbol from "./builtInTypeSymbol";
+import ProcedureSymbol from "./procedureSymbol";
 import Symbol from "./symbol";
 
 export default class SymbolTable {
@@ -24,6 +25,7 @@ export default class SymbolTable {
     this.insert(new BuiltInTypeSymbol("REAL"));
     this.insert(new BuiltInTypeSymbol("STRING"));
     this.insert(new BuiltInTypeSymbol("BOOL"));
+    this.insert(new ProcedureSymbol("print"));
   }
 
   public insert(symbol: Symbol) {
