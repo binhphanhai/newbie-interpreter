@@ -10,9 +10,9 @@ const Home = ({ examples }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
       <div>
-        <h2>Welcome to Newbie Interpreter</h2>
+        <h2>Chào mừng đến với Newbie Interpreter</h2>
         <div className="example-container">
-          <div className="title">{"Let's try some examples: "}</div>
+          <div className="title">{"Hãy thử 1 số ví dụ sau: "}</div>
           {Object.keys(examples).map((itemKey) => (
             <ExampleItem
               key={itemKey}

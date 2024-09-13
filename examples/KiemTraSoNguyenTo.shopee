@@ -1,0 +1,36 @@
+chuongtrinh test
+{
+	bien n: nguyen;
+	bien s: chuoi;
+	bien kq: bool;
+	ham laSoNguyenTo(x: nguyen)
+	{
+		bien i: nguyen;
+		bien ketqua: bool;
+		ketqua = dung;
+		i = 2;
+		khi(i < x)
+		{
+			neu(x % i == 0)
+			{
+				ketqua = sai;
+			};
+			i = i + 1;
+		};
+	
+		trave ketqua;
+	}
+	n = 19;
+	s = "Chương trình kiểm tra số nguyên tố của số " + n + ": ";
+	in("Chào mừng đến với Newbie Interpreter:");
+	in(s);
+	kq = laSoNguyenTo(n);
+	neu(kq == dung)
+	{
+		in("Số " + n + " là số nguyên tố");
+	}
+	nguoclai
+	{
+		in("Số " + n + " không phải là số nguyên tố");
+	};
+}	

@@ -80,3 +80,17 @@ h2 {
 .result-zone.is-error {
   color: rgb(211, 12, 12);
 }
+
+.cm-custom-blue {
+  color: #5dadfd;
+}
+.cm-custom-light-blue {
+  color: #b0d2f4;
+}
+
+.cm-custom-purple {
+  color: #bb8cfa;
+}
+.cm-custom-string {
+  color: #ffbd7a;
+}

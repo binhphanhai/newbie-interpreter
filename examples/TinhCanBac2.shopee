@@ -1,0 +1,63 @@
+chuongtrinh taolao
+{
+	bien n: nguyen;
+	bien s: chuoi;
+	ham tinhCanBac2(x: thuc)
+	{
+		bien ketqua: thuc;
+		bien xHienTai: thuc;
+		bien saiSoHienTai: thuc;
+		bien saiSoChoPhep: thuc;
+		bien trai, phai: thuc;
+		bien lonHonKetQua: bool;
+		
+		saiSoChoPhep = 0.000001;		
+		trai = 0.0;
+		phai = x;
+		ketqua = (trai + phai) / 2;
+		xHienTai = ketqua * ketqua;
+
+		neu(xHienTai > x )
+		{
+			saiSoHienTai = xHienTai - x;
+			lonHonKetQua = dung;
+		}
+		nguoclai
+		{
+			lonHonKetQua = sai;
+			saiSoHienTai = x - xHienTai;
+		};
+		
+		khi(saiSoHienTai > saiSoChoPhep)
+		{
+			neu(lonHonKetQua == dung)
+			{
+				phai = ketqua;				
+			}
+			nguoclai
+			{
+				trai = ketqua;
+			};
+			ketqua = (trai + phai) / 2;
+			xHienTai = ketqua * ketqua;
+
+			neu(xHienTai > x )
+			{
+				saiSoHienTai = xHienTai - x;
+				lonHonKetQua = dung;
+			}
+			nguoclai
+			{
+				lonHonKetQua = sai;
+				saiSoHienTai = x - xHienTai;
+			};
+		};
+	
+		trave ketqua;
+	}
+	n = 5;
+	s = "Chương trình tính căn bậc 2 của  " + n + ":";
+	in("Chào mừng đến với Newbie Interpreter:");
+	in(s);
+	in(tinhCanBac2(n));
+}	

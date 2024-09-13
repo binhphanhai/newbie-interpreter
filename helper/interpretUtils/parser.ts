@@ -102,7 +102,7 @@ export default class Parser {
   }
 
   private getFormalParameterList(): Param[] {
-    // function(a, b: int; c, d: real)
+    // function(a, b: nguyen; c, d: thuc)
     if (this.currentToken.type !== TokenType.ID) return [];
 
     const paramList = this.getFormalParameter();
@@ -115,7 +115,7 @@ export default class Parser {
   }
 
   private getFormalParameter(): Param[] {
-    // a, b: int
+    // a, b: nguyen
     const varList: Token[] = [];
 
     varList.push(this.currentToken);
@@ -232,7 +232,7 @@ export default class Parser {
         return new MyBool(token);
       case TokenType.LPAREN:
         this.eat(TokenType.LPAREN);
-        var node = this.getExpression();
+        const node = this.getExpression();
         this.eat(TokenType.RPAREN);
         return node;
       case TokenType.ID:

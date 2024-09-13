@@ -49,19 +49,19 @@ export default class Lexer {
 
   public static initReservedKeywords() {
     Lexer.RESERVED_KEYWORDS = {
-      var: new Token(TokenType.VAR, "VAR"),
-      program: new Token(TokenType.PROGRAM, "PROGRAM"),
-      int: new Token(TokenType.INTEGER, "INTEGER"),
-      real: new Token(TokenType.REAL, "REAL"),
-      string: new Token(TokenType.STRING, "STRING"),
+      bien: new Token(TokenType.VAR, "VAR"),
+      chuongtrinh: new Token(TokenType.PROGRAM, "PROGRAM"),
+      nguyen: new Token(TokenType.INTEGER, "INTEGER"),
+      thuc: new Token(TokenType.REAL, "REAL"),
+      chuoi: new Token(TokenType.STRING, "STRING"),
       bool: new Token(TokenType.BOOL, "BOOL"),
-      function: new Token(TokenType.PROCEDURE, "PROCEDURE"),
-      return: new Token(TokenType.RETURN, "RETURN"),
-      if: new Token(TokenType.IF, "IF"),
-      else: new Token(TokenType.ELSE, "ELSE"),
-      while: new Token(TokenType.WHILE, "WHILE"),
-      true: new Token(TokenType.BOOL_CONST, "TRUE"),
-      false: new Token(TokenType.BOOL_CONST, "FALSE"),
+      ham: new Token(TokenType.PROCEDURE, "PROCEDURE"),
+      trave: new Token(TokenType.RETURN, "RETURN"),
+      neu: new Token(TokenType.IF, "IF"),
+      nguoclai: new Token(TokenType.ELSE, "ELSE"),
+      khi: new Token(TokenType.WHILE, "WHILE"),
+      dung: new Token(TokenType.BOOL_CONST, "TRUE"),
+      sai: new Token(TokenType.BOOL_CONST, "FALSE"),
     };
   }
 

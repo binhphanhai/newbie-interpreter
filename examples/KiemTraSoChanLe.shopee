@@ -1,0 +1,33 @@
+chuongtrinh taolao
+{
+	bien s: chuoi;
+	bien n: nguyen;
+	bien kq: bool;
+	ham laSoChan(x: nguyen)
+	{
+		bien ketqua: bool;
+		neu(x % 2 == 0)
+		{
+			ketqua = dung;
+		}
+		nguoclai
+		{
+			ketqua = sai;
+		};
+		
+		trave ketqua;
+	}
+	n = 1620;
+	s = "Chương trình kiểm tra số chẵn hay lẻ của số " + n + ":";
+	in("Chào mừng đến với Newbie Interpreter:");
+	in(s);
+	kq = laSoChan(n);
+	neu(kq == dung)
+	{
+		in("Số " + n + " là số chẵn");
+	}
+	nguoclai
+	{
+		in("Số " + n + " là số lẻ");
+	};
+}	

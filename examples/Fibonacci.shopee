@@ -1,41 +1,40 @@
-program test
+chuongtrinh test
 {
-    // have to declare all variables & functions on top of function or program
-	var i, n: int;
-	var s: string;
-	function fibonacci(x: int)
+	bien i, n: nguyen;
+	bien s: chuoi;
+	ham fibonacci(x: nguyen)
 	{
-		var result: int;
-		if(x <= 0)
+		bien ketqua: nguyen;
+		neu(x <= 0)
 		{
-			result = -1;
+			ketqua = -1;
 		};
 
-		if(x == 1) 
+		neu(x == 1) 
 		{
-			result = 1;
+			ketqua = 1;
 		};
 
-		if(x == 2) 
+		neu(x == 2) 
 		{
-			result = 1;
+			ketqua = 1;
 		};
 
-		if(x > 2) 
+		neu(x > 2) 
 		{
-			result = fibonacci(x - 1) + fibonacci(x - 2);
+			ketqua = fibonacci(x - 1) + fibonacci(x - 2);
 		};
 		
-		return result;
+		trave ketqua;
 	}
 	i = 1;
 	n = 10;
-	s = "The first " + n + " numbers of Fibonacci:";
-	print("Welcome to Newbie Interpreter:");
-	print(s);
-	while(i <= n)
+	s = n + " số đầu tiên trong dãy Fibonacci là:";
+	in("Chào mừng đến với Newbie Interpreter:");
+	in(s);
+	khi(i <= n)
 	{ 
-		print(fibonacci(i));
+		in(fibonacci(i));
 		i = i + 1;
 	};
 }	

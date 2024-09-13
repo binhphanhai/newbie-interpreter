@@ -25,7 +25,7 @@ export default class SymbolTable {
     this.insert(new BuiltInTypeSymbol("REAL"));
     this.insert(new BuiltInTypeSymbol("STRING"));
     this.insert(new BuiltInTypeSymbol("BOOL"));
-    this.insert(new ProcedureSymbol("print"));
+    this.insert(new ProcedureSymbol("in"));
   }
 
   public insert(symbol: Symbol) {
