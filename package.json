@@ -11,7 +11,7 @@
   "dependencies": {
     "axios": "^0.21.4",
     "codemirror": "^5.63.1",
-    "next": "11.1.2",
+    "next": "^12",
     "react": "17.0.2",
     "react-codemirror2": "^7.2.1",
     "react-dom": "17.0.2"
