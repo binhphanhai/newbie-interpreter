@@ -78,9 +78,9 @@ export class Token {
   }
 
   showToken() {
-    return `Token: ${MAP_TOKEN_TYPE[this.type]}, value = ${
+    return `Token: ${MAP_TOKEN_TYPE[this.type]}, giá trị = ${
       this.value
-    }, position = ${this.lineno}:${this.column}`;
+    }, vị trí = ${this.lineno}:${this.column}`;
   }
 
   static addSampleCompareOperator() {

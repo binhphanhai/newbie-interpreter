@@ -34,10 +34,10 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
     setResult(result);
   };
   return (
-    <div>
+    <>
       <div className="button-container">
         <span className="button title" onClick={handleInterpret}>
-          Interpret
+          Phiên dịch
         </span>
       </div>
       <div className={`result-zone ${isErrored ? "is-error" : ""}`}>
@@ -45,7 +45,7 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
           ? "...Interpreting..."
           : result.map((value, index) => <div key={index}>{value}</div>)}
       </div>
-    </div>
+    </>
   );
 };
 

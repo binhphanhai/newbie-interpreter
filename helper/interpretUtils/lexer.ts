@@ -42,7 +42,7 @@ export default class Lexer {
   }
 
   public showError() {
-    const message = `Lexer error on ${this.currentChar} line: ${this.lineno}, column: ${this.column}`;
+    const message = `Lỗi Lexer ở ${this.currentChar} dòng: ${this.lineno}, cột: ${this.column}`;
     const error = new LexerError(message);
     error.showError();
   }

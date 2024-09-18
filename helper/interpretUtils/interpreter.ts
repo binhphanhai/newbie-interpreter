@@ -69,7 +69,7 @@ export default class Interpreter extends NodeVisitor {
       case TokenType.LESS_THAN_OR_EQUAL:
         return this.visit(node.left) <= this.visit(node.right);
       default:
-        this.showError("Error in visitBinOP: not supported operator");
+        this.showError("Lỗi ở visitBinOP: không hỗ trợ operator này");
     }
   }
 
@@ -80,7 +80,7 @@ export default class Interpreter extends NodeVisitor {
       case TokenType.MINUS:
         return -this.visit(node.expression);
       default:
-        this.showError("Error in visitUnaryOP: not supported operator");
+        this.showError("Lỗi ở visitUnaryOP: không hỗ trợ operator này");
     }
   }
 

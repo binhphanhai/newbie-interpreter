@@ -3,6 +3,6 @@ import BaseError, { ErrorCode } from "./baseError";
 
 export class ParserError extends BaseError {
   constructor(errorCode: ErrorCode, token: Token, message: string) {
-    super(message, "ParserError", errorCode, token);
+    super(message, "Lỗi Parser", errorCode, token);
   }
 }

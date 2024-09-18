@@ -12,13 +12,13 @@ export enum ErrorCode {
 }
 
 export const MAP_ERROR_CODE = {
-  [ErrorCode.UNEXPECTED_TOKEN]: "UNEXPECTED_TOKEN",
-  [ErrorCode.ID_NOT_FOUND]: "ID_NOT_FOUND",
-  [ErrorCode.PROCEDURE_NOT_FOUND]: "PROCEDURE_NOT_FOUND",
-  [ErrorCode.DUPLICATE_ID]: "DUPLICATE_ID",
-  [ErrorCode.NOT_FOUND_TYPE]: "NOT_FOUND_TYPE",
-  [ErrorCode.DUPLICATE_PROCEDURE]: "DUPLICATE_PROCEDURE",
-  [ErrorCode.UNSIGNED]: "UNSIGNED",
+  [ErrorCode.UNEXPECTED_TOKEN]: "Cú pháp không đúng",
+  [ErrorCode.ID_NOT_FOUND]: "Biến không tồn tại",
+  [ErrorCode.PROCEDURE_NOT_FOUND]: "Hàm không tồn tại",
+  [ErrorCode.DUPLICATE_ID]: "Biến đã được khai báo",
+  [ErrorCode.DUPLICATE_PROCEDURE]: "Hàm đã được khai báo",
+  [ErrorCode.NOT_FOUND_TYPE]: "Kiểu dữ liệu không đúng",
+  [ErrorCode.UNSIGNED]: "Không xác định",
 };
 
 export default class BaseError {
@@ -28,7 +28,7 @@ export default class BaseError {
 
   constructor(
     message: string = "",
-    errorType: string = "Error",
+    errorType: string = "Lỗi",
     errorCode: ErrorCode = ErrorCode.UNSIGNED,
     token: Token | null = null
   ) {
