@@ -18,5 +18,5 @@ export const interpret = (code: string) => {
 
   const interpreter = new Interpreter();
 
-  return interpreter.interpret(tree);
+  return { tree, result: interpreter.interpret(tree) };
 };

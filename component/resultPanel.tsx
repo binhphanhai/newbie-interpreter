@@ -21,7 +21,8 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
     axios
       .post("/api/interpret", { code: code })
       .then((res) => {
-        setResult(res.data.result);
+        console.log(res.data?.tree)
+        setResult(res.data?.result || '');
       })
       .catch((err) => {
         setIsErrored(true);
