@@ -7,6 +7,7 @@ export enum ErrorCode {
   DUPLICATE_ID,
   NOT_FOUND_TYPE,
   DUPLICATE_PROCEDURE,
+  TYPE_MISMATCH,
 
   UNSIGNED = 99,
 }
@@ -17,7 +18,8 @@ export const MAP_ERROR_CODE = {
   [ErrorCode.PROCEDURE_NOT_FOUND]: "Hàm không tồn tại",
   [ErrorCode.DUPLICATE_ID]: "Biến đã được khai báo",
   [ErrorCode.DUPLICATE_PROCEDURE]: "Hàm đã được khai báo",
-  [ErrorCode.NOT_FOUND_TYPE]: "Kiểu dữ liệu không đúng",
+  [ErrorCode.NOT_FOUND_TYPE]: "Kiểu dữ liệu không tồn tại",
+  [ErrorCode.TYPE_MISMATCH]: "Kiểu dữ liệu không hợp lệ",
   [ErrorCode.UNSIGNED]: "Không xác định",
 };
 

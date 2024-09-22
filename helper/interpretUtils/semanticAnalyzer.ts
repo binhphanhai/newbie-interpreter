@@ -20,7 +20,7 @@ import { SemanticError } from "../errors/semanticError";
 import SymbolTable from "../symbolTable";
 import ProcedureSymbol from "../symbolTable/procedureSymbol";
 import VarSymbol from "../symbolTable/varSymbol";
-import Token from "../token";
+import Token, { TokenType } from "../token";
 import NodeVisitor from "./nodeVisitor";
 
 export default class SemanticAnalyzer extends NodeVisitor {
@@ -52,20 +52,25 @@ export default class SemanticAnalyzer extends NodeVisitor {
   }
 
   private visitBinOP(node: BinOP) {
-    this.visit(node.left);
-    this.visit(node.right);
+    return [...this.visit(node.left), ...this.visit(node.right)];
   }
 
-  private visitMyBool(node: MyBool) {}
+  private visitMyBool(node: MyBool) {
+    return [node.token.type];
+  }
 
-  private visitMyNumber(node: MyNumber) {}
+  private visitMyNumber(node: MyNumber) {
+    return [node.token.type];
+  }
 
-  private visitMyString(node: MyString) {}
+  private visitMyString(node: MyString) {
+    return [node.token.type];
+  }
 
   private visitNoOP(node: NoOP) {}
 
   private visitUnaryOP(node: UnaryOP) {
-    this.visit(node.expression);
+    return [...this.visit(node.expression)];
   }
 
   private visitCompound(node: Compound) {
@@ -134,18 +139,51 @@ export default class SemanticAnalyzer extends NodeVisitor {
     for (const param of node.actualParams) {
       this.visit(param);
     }
+    return [];
   }
 
   private visitVar(node: Var) {
-    if (!this.currentScope?.lookup(node.value)) {
+    const value = this.currentScope?.lookup(node.value);
+    if (!value) {
       this.showError(ErrorCode.ID_NOT_FOUND, node.token);
+    }
+    switch (value?.type?.name) {
+      case "BOOL":
+        return [TokenType.BOOL_CONST];
+      case "INTEGER":
+        return [TokenType.INTEGER_CONST];
+      case "STRING":
+        return [TokenType.STRING_CONST];
+      case "REAL":
+        return [TokenType.REAL_CONST];
+      default:
+        return [];
     }
   }
 
   private visitAssign(node: Assign) {
     const variable = node.left as Var;
     this.visit(variable);
-    this.visit(node.right);
+    const type = this.currentScope?.lookup(variable.value)?.type;
+    const valueType: TokenType[] = this.visit(node.right);
+
+    if (valueType?.includes(TokenType.STRING_CONST)) {
+      if (type?.name !== "STRING") {
+        this.showError(ErrorCode.TYPE_MISMATCH, variable.token);
+      }
+    } else if (valueType?.includes(TokenType.REAL_CONST)) {
+      if (type?.name !== "REAL") {
+        this.showError(ErrorCode.TYPE_MISMATCH, variable.token);
+      }
+    } else if (valueType?.includes(TokenType.INTEGER_CONST)) {
+      if (type?.name !== "INTEGER") {
+        this.showError(ErrorCode.TYPE_MISMATCH, variable.token);
+      }
+    } else if (valueType?.includes(TokenType.BOOL_CONST)) {
+      if (type?.name !== "BOOL") {
+        this.showError(ErrorCode.TYPE_MISMATCH, variable.token);
+      }
+    }
   }
 
   private visitReturn(node: Return) {
