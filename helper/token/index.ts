@@ -1,60 +1,51 @@
 export enum TokenType {
   // Constant Number
-  INTEGER_CONST = 10,
-  REAL_CONST = 11,
-  STRING_CONST = 12,
-  BOOL_CONST = 13,
+  INTEGER_CONST = "INTEGER_CONST",
+  REAL_CONST = "REAL_CONST",
+  STRING_CONST = "STRING_CONST",
+  BOOL_CONST = "BOOL_CONST",
   // Types
-  INTEGER = 20,
-  REAL = 21,
-  STRING = 22,
-  BOOL = 23,
+  INTEGER = "INTEGER",
+  REAL = "REAL",
+  STRING = "STRING",
+  BOOL = "BOOL",
   // Compare
-  EQUAL = 31,
-  NOT_EQUAL = 32,
-  GREATER_THAN = 33,
-  LESS_THAN = 34,
-  GREATER_THAN_OR_EQUAL = 35,
-  LESS_THAN_OR_EQUAL = 36,
+  EQUAL = "EQUAL",
+  NOT_EQUAL = "NOT_EQUAL",
+  GREATER_THAN = "GREATER_THAN",
+  LESS_THAN = "LESS_THAN",
+  GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL",
+  LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL",
   // Operators
-  PLUS = 61,
-  MINUS = 62,
-  MULTIPLE = 63,
-  DIVIDE = 64,
-  LPAREN = 65,
-  RPAREN = 66,
-  INTEGER_DIV = 67,
-  REAL_DIV = 68,
-  INTEGER_MOD = 69,
+  PLUS = "PLUS",
+  MINUS = "MINUS",
+  MULTIPLE = "MULTIPLE",
+  DIVIDE = "DIVIDE",
+  LPAREN = "LPAREN",
+  RPAREN = "RPAREN",
+  INTEGER_DIV = "INTEGER_DIV",
+  REAL_DIV = "REAL_DIV",
+  INTEGER_MOD = "INTEGER_MOD",
   // Reserved Keywords
-  BEGIN = 71,
-  END = 72,
-  PROGRAM = 73,
-  VAR = 74,
-  COMMA = 75,
-  COLON = 76,
-  PROCEDURE = 77,
-  RETURN = 78,
-  IF = 79,
-  ELSE = 80,
-  WHILE = 81,
+  BEGIN = "BEGIN",
+  END = "END",
+  PROGRAM = "PROGRAM",
+  VAR = "VAR",
+  COMMA = "COMMA",
+  COLON = "COLON",
+  PROCEDURE = "PROCEDURE",
+  RETURN = "RETURN",
+  IF = "IF",
+  ELSE = "ELSE",
+  WHILE = "WHILE",
   // Others
-  ID = 91,
-  ASSIGN = 92,
-  SEMI = 93,
-  DOT = 94,
+  ID = "ID",
+  ASSIGN = "ASSIGN",
+  SEMI = "SEMI",
+  DOT = "DOT",
 
-  UNDEFINED = 198,
-  EOF = 199,
-}
-
-const MAP_TOKEN_TYPE: any = {};
-
-for (const enumMember in TokenType) {
-  const isValueProperty = parseInt(enumMember, 10) >= 0;
-  if (isValueProperty) {
-    MAP_TOKEN_TYPE[enumMember] = TokenType[enumMember];
-  }
+  UNDEFINED = "UNDEFINED",
+  EOF = "EOF",
 }
 
 /// Used to store tokens (type, value, position)
@@ -78,9 +69,8 @@ export class Token {
   }
 
   showToken() {
-    return `Token: ${MAP_TOKEN_TYPE[this.type]}, giá trị = ${
-      this.value
-    }, vị trí = ${this.lineno}:${this.column}`;
+    return `Token: ${this.type}, giá trị = ${this.value
+      }, vị trí = ${this.lineno}:${this.column}`;
   }
 
   static addSampleCompareOperator() {
