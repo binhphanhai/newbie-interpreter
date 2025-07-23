@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { interpret } from "../helper/interpretUtils";
 
 interface ResultPanelProps {
   code: string;
@@ -18,21 +18,19 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
       return;
     }
     setIsLoading(true);
-    axios
-      .post("/api/interpret", { code: code })
-      .then((res) => {
-        console.log(res.data?.tree)
-        setResult(res.data?.result || '');
-      })
-      .catch((err) => {
-        setIsErrored(true);
-        const errMessage = err.response?.data.message || "Something went wrong";
-        setResult([errMessage]);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-    setResult(result);
+
+    try {
+      const { tree, result: interpretResult } = interpret(code);
+      console.log(tree);
+      setResult(interpretResult || []);
+      setIsErrored(false);
+    } catch (err: any) {
+      setIsErrored(true);
+      const errMessage = err.message || "Something went wrong";
+      setResult([errMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
   return (
     <>

@@ -8,7 +8,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Newbie Interpreter</title>
         <meta name="description" content="newbie interpreter" />
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href={`${
+            process.env.NODE_ENV === "production" ? "/newbie-interpreter" : ""
+          }/favicon.ico`}
+        />
       </Head>
       <main>
         <Component {...pageProps} />
