@@ -10,4 +10,8 @@ export default class Return extends AST {
     this.token = token;
     this.result = result;
   }
+
+  public getType(): string {
+    return "Return";
+  }
 }

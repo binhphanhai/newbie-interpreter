@@ -10,4 +10,8 @@ export default class ProgramAST extends AST {
     this.name = name;
     this.block = block;
   }
+
+  public getType(): string {
+    return "ProgramAST";
+  }
 }

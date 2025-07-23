@@ -12,4 +12,8 @@ export default class BinOP extends AST {
     this.op = op;
     this.right = right;
   }
+
+  public getType(): string {
+    return "BinOP";
+  }
 }

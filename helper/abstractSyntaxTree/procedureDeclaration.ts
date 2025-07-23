@@ -21,4 +21,8 @@ export default class ProcedureDeclaration extends AST {
     this.params = params;
     this.blockNode = blockNode;
   }
+
+  public getType(): string {
+    return "ProcedureDeclaration";
+  }
 }

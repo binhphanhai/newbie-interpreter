@@ -10,4 +10,8 @@ export default class Var extends AST {
     this.token = token;
     this.value = token.value!;
   }
+
+  public getType(): string {
+    return "Var";
+  }
 }

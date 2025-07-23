@@ -21,7 +21,6 @@ const ResultPanel: React.FC<ResultPanelProps> = (props) => {
 
     try {
       const { tree, result: interpretResult } = interpret(code);
-      console.log(tree);
       setResult(interpretResult || []);
       setIsErrored(false);
     } catch (err: any) {

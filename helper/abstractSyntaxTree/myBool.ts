@@ -10,4 +10,8 @@ export default class MyBool extends AST {
     this.token = token;
     this.value = token.value === "TRUE";
   }
+
+  public getType(): string {
+    return "MyBool";
+  }
 }

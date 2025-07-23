@@ -10,4 +10,8 @@ export default class UnaryOP extends AST {
     this.op = op;
     this.expression = expression;
   }
+
+  public getType(): string {
+    return "UnaryOP";
+  }
 }

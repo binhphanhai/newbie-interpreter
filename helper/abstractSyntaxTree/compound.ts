@@ -7,4 +7,8 @@ export default class Compound extends AST {
     super();
     this.children = [];
   }
+
+  public getType(): string {
+    return "Compound";
+  }
 }

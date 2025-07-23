@@ -11,4 +11,8 @@ export default class VariableDeclaration extends AST {
     this.varNode = varNode;
     this.typeNode = typeNode;
   }
+
+  public getType(): string {
+    return "VariableDeclaration";
+  }
 }

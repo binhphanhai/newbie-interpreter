@@ -11,4 +11,8 @@ export default class While extends AST {
     this.expression = expression;
     this.whileBlock = whileBlock;
   }
+
+  public getType(): string {
+    return "While";
+  }
 }

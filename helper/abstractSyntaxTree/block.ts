@@ -10,4 +10,8 @@ export default class Block extends AST {
     this.declarations = inputDeclare;
     this.compoundStatement = inputCompound;
   }
+
+  public getType(): string {
+    return "Block";
+  }
 }

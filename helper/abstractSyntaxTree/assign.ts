@@ -12,4 +12,8 @@ export default class Assign extends AST {
     this.op = op;
     this.right = right;
   }
+
+  public getType(): string {
+    return "Assign";
+  }
 }

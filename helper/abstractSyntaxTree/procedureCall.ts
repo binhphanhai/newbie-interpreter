@@ -12,4 +12,8 @@ export default class ProcedureCall extends AST {
     this.actualParams = actualParams;
     this.token = token;
   }
+
+  public getType(): string {
+    return "ProcedureCall";
+  }
 }

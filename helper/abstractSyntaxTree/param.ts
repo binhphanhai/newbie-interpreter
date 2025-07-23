@@ -11,4 +11,8 @@ export default class Param extends AST {
     this.varNode = varNode;
     this.typeNode = typeNode;
   }
+
+  public getType(): string {
+    return "Param";
+  }
 }

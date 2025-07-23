@@ -13,4 +13,8 @@ export default class If extends AST {
     this.ifBlock = ifBlock;
     this.elseBlock = elseBlock;
   }
+
+  public getType(): string {
+    return "If";
+  }
 }

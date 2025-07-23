@@ -10,4 +10,8 @@ export default class MyNumber extends AST {
     this.token = token;
     this.value = token.value!;
   }
+
+  public getType(): string {
+    return "MyNumber";
+  }
 }

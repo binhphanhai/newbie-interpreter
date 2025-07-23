@@ -23,11 +23,6 @@ import ActivationRecord, { ARType } from "../callStack/activationRecord";
 import { TokenType } from "../token";
 import NodeVisitor from "./nodeVisitor";
 
-const normalizeParams = (params: any[]) => {
-  return params.map((param) =>
-    typeof param === "string" ? `"${param}"` : param
-  );
-};
 export default class Interpreter extends NodeVisitor {
   private callStack: CallStack;
   private resultArray: string[];
@@ -100,7 +95,7 @@ export default class Interpreter extends NodeVisitor {
 
   private visitCompound(node: Compound) {
     for (const child of node.children) {
-      if (child.getType() === Return.name.toString()) return this.visit(child);
+      if (child instanceof Return) return this.visit(child);
       else this.visit(child);
     }
   }
@@ -142,10 +137,13 @@ export default class Interpreter extends NodeVisitor {
       actualParam.push(this.visit(param));
     }
 
-    const method = `this.${procedure}(${normalizeParams(actualParam).join(
-      ","
-    )})`;
-    return eval(method);
+    // Use direct method calls instead of eval to avoid minification issues
+    switch (procedure) {
+      case "visitPrint":
+        return this.visitPrint(actualParam[0]);
+      default:
+        throw new Error(`Unknown built-in procedure: ${procedure}`);
+    }
   }
 
   private visitProcedureCall(node: ProcedureCall) {
@@ -180,7 +178,6 @@ export default class Interpreter extends NodeVisitor {
   }
 
   private visitPrint(value: any) {
-    // console.log(value);
     this.resultArray.push(value);
   }
 
@@ -206,6 +203,8 @@ export default class Interpreter extends NodeVisitor {
   }
 
   public interpret(tree: AST) {
+    // Reset result array for each interpretation
+    this.resultArray = [];
     this.visit(tree);
     return this.resultArray;
   }
