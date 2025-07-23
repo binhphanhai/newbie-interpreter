@@ -1,16 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface ExampleItemProps {
   name: string;
   handleSelect: () => void;
 }
 
-const ExampleItem: React.FC<ExampleItemProps> = (props) => {
-  const { name, handleSelect } = props;
+const ExampleItem: React.FC<ExampleItemProps> = ({ name, handleSelect }) => {
   return (
-    <span className="button" onClick={handleSelect}>
+    <button
+      className="example-button"
+      onClick={handleSelect}
+      type="button"
+      aria-label={`Load example: ${name}`}
+    >
       {name}
-    </span>
+    </button>
   );
 };
 

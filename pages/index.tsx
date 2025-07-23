@@ -7,12 +7,15 @@ import { readFiles } from "../helper/fileReader";
 
 const Home = ({ examples }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [code, setCode] = useState("");
+
   return (
     <div>
-      <h2>Chào mừng đến với Newbie Interpreter</h2>
+      <h1 className="page-title">Chào mừng đến với Newbie Interpreter</h1>
+
       <div className="main-container">
-        <div style={{ flex: 1 }}>
-          <div className="title">Hãy thử 1 số ví dụ sau:</div>
+        <section className="editor-section">
+          <h2 className="section-title">Hãy thử một số ví dụ sau:</h2>
+
           <div className="example-container">
             {Object.keys(examples).map((itemKey) => (
               <ExampleItem
@@ -22,13 +25,16 @@ const Home = ({ examples }: InferGetStaticPropsType<typeof getStaticProps>) => {
               />
             ))}
           </div>
-          <div>
+
+          <div className="editor-wrapper">
             <Editor code={code} setCode={setCode} />
           </div>
-        </div>
-        <div className="result-panel-container">
+        </section>
+
+        <aside className="result-panel-container">
+          <h2 className="section-title">Kết quả</h2>
           <ResultPanel code={code} />
-        </div>
+        </aside>
       </div>
     </div>
   );
